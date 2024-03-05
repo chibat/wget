@@ -7,27 +7,27 @@
  */
 export async function wget(
   url: string,
-  options?: { fileName?: string },
+  options?: { file?: string },
 ): Promise<Response | null> {
-  let fileName = options?.fileName?.trim();
-  const res = await fetch(url);
-  if (!fileName) {
+  let file = options?.file?.trim();
+  if (!file) {
     // res.headers.get("Content-Disposition") // TODO
     const array = new URL(url).pathname.split("/");
-    fileName = array[array.length - 1].trim();
-    if (!fileName) {
-      return res;
+    file = array[array.length - 1].trim();
+    if (!file) {
+      file = "index.html";
     }
   }
-  const file = Deno.createSync(fileName);
-  await res.body?.pipeTo(file.writable);
+  const res = await fetch(url);
+  const f = Deno.createSync(file);
+  await res.body?.pipeTo(f.writable);
   return res;
 }
 
 if (import.meta.main) {
   const url = Deno.args[0];
-  const fileName = Deno.args[1];
+  const file = Deno.args[1];
   if (url) {
-    await wget(url, { fileName });
+    await wget(url, { file });
   }
 }
