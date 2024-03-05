@@ -2,6 +2,7 @@
 
 File download
 
+## Usage
 
 ```
 $ deno
@@ -27,4 +28,8 @@ logo.svg
 import { wget } from "@chiba/wget";
 
 await wget("https://deno.land/logo.svg");
+```
+
+```
+$ deno run -A jsr:@chiba/wget https://deno.land/logo.svg
 ```
