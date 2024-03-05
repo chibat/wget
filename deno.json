@@ -1,4 +1,7 @@
 {
+  "name": "@chiba/wget",
+  "version": "0.0.1",
+  "exports": "./mod.ts",
   "tasks": {
     "test": "deno test --allow-net=deno.land --allow-read=. --allow-write=."
   }
