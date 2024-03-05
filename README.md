@@ -1,5 +1,7 @@
 # wget
 
+[![](https://jsr.io/badges/@chiba/wget)](https://jsr.io/@chiba/wget)
+
 File download
 
 ## Usage
