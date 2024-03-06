@@ -3,7 +3,7 @@
  *
  * @param url
  * @param options
- * @returns Request
+ * @returns Response
  */
 export async function wget(
   url: string,
