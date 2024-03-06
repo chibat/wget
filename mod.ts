@@ -1,3 +1,5 @@
+import * as fs from "@std/fs";
+
 /**
  * wget
  *
@@ -8,20 +10,30 @@
 export async function wget(
   url: string,
   options?: { file?: string },
-): Promise<Response | null> {
+): Promise<{response: Response, file: string} | null> {
+  const response = await fetch(url);
+
   let file = options?.file?.trim();
   if (!file) {
-    // res.headers.get("Content-Disposition") // TODO
+    // response.headers.get("Content-Disposition") // TODO
     const array = new URL(url).pathname.split("/");
     file = array[array.length - 1].trim();
     if (!file) {
       file = "index.html";
     }
   }
-  const res = await fetch(url);
+
+  const original = file;
+  for (let i = 1; i < Number.MAX_SAFE_INTEGER; i++) {
+    if (!fs.existsSync(file)) {
+      break;
+    }
+    file = `${original}.${i}`;
+  }
+
   const f = Deno.createSync(file);
-  await res.body?.pipeTo(f.writable);
-  return res;
+  await response.body?.pipeTo(f.writable);
+  return {response, file};
 }
 
 if (import.meta.main) {

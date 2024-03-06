@@ -4,5 +4,6 @@
   "exports": "./mod.ts",
   "tasks": {
     "test": "deno test --allow-net=deno.land --allow-read=. --allow-write=."
-  }
+  },
+  "imports": { "@std/fs": "jsr:@std/fs@^0.218.2" }
 }
