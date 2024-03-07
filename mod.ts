@@ -1,4 +1,5 @@
 import * as fs from "@std/fs";
+import { parseArgs } from "@std/cli";
 
 /**
  * wget
@@ -37,8 +38,9 @@ export async function wget(
 }
 
 if (import.meta.main) {
-  const url = Deno.args[0];
-  const file = Deno.args[1];
+  const args = parseArgs(Deno.args);
+  const url = args._[0]?.toString();
+  const file = args.O;
   if (url) {
     await wget(url, { file });
   }
