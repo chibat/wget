@@ -4,15 +4,18 @@ import { parseArgs } from "@std/cli";
 /**
  * Options
  */
-export type Options = {
+export interface Options {
   /** write documents to FILE */
   outputDocument?: string;
-};
+}
 
 /**
  * Result
  */
-export type Result = { response?: Response; outputDocument?: string };
+export interface Result {
+  response?: Response;
+  outputDocument?: string;
+}
 
 /**
  * wget
