@@ -7,6 +7,8 @@ import { parseArgs } from "@std/cli";
 export interface Options {
   /** write documents to FILE */
   outputDocument?: string;
+  /** Proxy, Certificate, etc(require `--unstable` option) */
+  client?: Deno.HttpClient;
 }
 
 /**
@@ -28,8 +30,8 @@ export async function wget(
   url: string,
   options?: Options,
 ): Promise<Result> {
-  new URL(url);
-  const response = await fetch(url);
+  const init = options?.client ? { client: options.client } : undefined;
+  const response = await fetch(url, init);
 
   let outputDocument = options?.outputDocument?.trim();
   if (!outputDocument) {
