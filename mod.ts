@@ -1,6 +1,10 @@
 import * as fs from "@std/fs";
 import { parseArgs } from "@std/cli";
 
+type Options = {
+  outputDocument?: string;
+};
+
 /**
  * wget
  *
@@ -10,8 +14,8 @@ import { parseArgs } from "@std/cli";
  */
 export async function wget(
   url: string,
-  options?: { outputDocument?: string },
-): Promise<{response: Response, outputDocument: string} | null> {
+  options?: Options,
+): Promise<{ response: Response; outputDocument: string } | null> {
   const response = await fetch(url);
 
   let outputDocument = options?.outputDocument?.trim();
@@ -34,7 +38,7 @@ export async function wget(
 
   const f = Deno.createSync(outputDocument);
   await response.body?.pipeTo(f.writable);
-  return {response, outputDocument};
+  return { response, outputDocument };
 }
 
 if (import.meta.main) {
