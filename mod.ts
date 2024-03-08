@@ -1,9 +1,11 @@
 import * as fs from "@std/fs";
 import { parseArgs } from "@std/cli";
 
-type Options = {
+export type Options = {
   outputDocument?: string;
 };
+
+export type Result = { response?: Response; outputDocument?: string };
 
 /**
  * wget
@@ -15,7 +17,8 @@ type Options = {
 export async function wget(
   url: string,
   options?: Options,
-): Promise<{ response: Response; outputDocument: string } | null> {
+): Promise<Result> {
+  new URL(url);
   const response = await fetch(url);
 
   let outputDocument = options?.outputDocument?.trim();
