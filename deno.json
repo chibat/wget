@@ -1,6 +1,6 @@
 {
   "name": "@chiba/wget",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "exports": "./mod.ts",
   "tasks": {
     "run": "deno run --allow-net --allow-read --allow-write ./mod.ts",

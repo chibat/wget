@@ -10,38 +10,38 @@ import { parseArgs } from "@std/cli";
  */
 export async function wget(
   url: string,
-  options?: { file?: string },
-): Promise<{response: Response, file: string} | null> {
+  options?: { outputDocument?: string },
+): Promise<{response: Response, outputDocument: string} | null> {
   const response = await fetch(url);
 
-  let file = options?.file?.trim();
-  if (!file) {
+  let outputDocument = options?.outputDocument?.trim();
+  if (!outputDocument) {
     // response.headers.get("Content-Disposition") // TODO
     const array = new URL(url).pathname.split("/");
-    file = array[array.length - 1].trim();
-    if (!file) {
-      file = "index.html";
+    outputDocument = array[array.length - 1].trim();
+    if (!outputDocument) {
+      outputDocument = "index.html";
     }
   }
 
-  const original = file;
+  const original = outputDocument;
   for (let i = 1; i < Number.MAX_SAFE_INTEGER; i++) {
-    if (!fs.existsSync(file)) {
+    if (!fs.existsSync(outputDocument)) {
       break;
     }
-    file = `${original}.${i}`;
+    outputDocument = `${original}.${i}`;
   }
 
-  const f = Deno.createSync(file);
+  const f = Deno.createSync(outputDocument);
   await response.body?.pipeTo(f.writable);
-  return {response, file};
+  return {response, outputDocument};
 }
 
 if (import.meta.main) {
   const args = parseArgs(Deno.args);
   const url = args._[0]?.toString();
-  const file = args.O;
+  const outputDocument = args["O"] ?? args["output-document"];
   if (url) {
-    await wget(url, { file });
+    await wget(url, { outputDocument });
   }
 }

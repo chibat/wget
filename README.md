@@ -40,7 +40,7 @@ undefined
     statusText: "OK",
     url: "https://deno.land/logo.svg"
   },
-  file: "logo.svg"
+  outputDocument: "logo.svg"
 }
 >
 $ ls

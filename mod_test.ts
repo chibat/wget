@@ -7,6 +7,6 @@ Deno.test(async function wgetTest() {
 });
 
 Deno.test(async function wgetFileNameTest() {
-  await wget("https://deno.land/logo.svg", { file: "foo.svg" });
+  await wget("https://deno.land/logo.svg", { outputDocument: "foo.svg" });
   await Deno.remove("foo.svg");
 });
