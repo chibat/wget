@@ -1,10 +1,17 @@
 import * as fs from "@std/fs";
 import { parseArgs } from "@std/cli";
 
+/**
+ * Options
+ */
 export type Options = {
+  /** write documents to FILE */
   outputDocument?: string;
 };
 
+/**
+ * Result
+ */
 export type Result = { response?: Response; outputDocument?: string };
 
 /**
