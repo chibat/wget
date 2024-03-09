@@ -8,7 +8,7 @@ export interface Options {
   /** write documents to FILE */
   outputDocument?: string;
   /** Proxy, Certificate, etc(require `--unstable` option) */
-  client?: Deno.HttpClient;
+  client?: Deno.CreateHttpClientOptions;
 }
 
 /**
@@ -30,7 +30,9 @@ export async function wget(
   url: string,
   options?: Options,
 ): Promise<Result> {
-  const init = options?.client ? { client: options.client } : undefined;
+  const init = options?.client
+    ? { client: Deno.createHttpClient(options.client) }
+    : undefined;
   const response = await fetch(url, init);
 
   let outputDocument = options?.outputDocument?.trim();
