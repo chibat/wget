@@ -1,3 +1,8 @@
+/**
+ * @module
+ * CLI
+ */
+
 import { parseArgs } from "@std/cli";
 import { wget } from "./mod.ts";
 

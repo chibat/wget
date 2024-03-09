@@ -1,6 +1,6 @@
 {
   "name": "@chiba/wget",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "exports": {
     ".": "./mod.ts",
     "./cli": "./cli.ts"
