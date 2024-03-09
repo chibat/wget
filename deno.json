@@ -3,7 +3,7 @@
   "version": "0.0.17",
   "exports": {
     ".": "./mod.ts",
-    "cli": "./cli.ts"
+    "./cli": "./cli.ts"
   },
   "tasks": {
     "run": "deno run --allow-net --allow-read --allow-write ./mod.ts",
