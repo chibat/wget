@@ -1,5 +1,4 @@
 import * as fs from "@std/fs";
-import { parseArgs } from "@std/cli";
 
 /**
  * Options
@@ -56,13 +55,4 @@ export async function wget(
   const f = Deno.createSync(outputDocument);
   await response.body?.pipeTo(f.writable);
   return { response, outputDocument };
-}
-
-if (import.meta.main) {
-  const args = parseArgs(Deno.args);
-  const url = args._[0]?.toString();
-  const outputDocument = args["O"] ?? args["output-document"];
-  if (url) {
-    await wget(url, { outputDocument });
-  }
 }

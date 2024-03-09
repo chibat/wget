@@ -6,6 +6,8 @@ File download
 
 ## Usage
 
+### API
+
 ```
 $ deno add @chiba/wget
 ```
@@ -19,7 +21,7 @@ await wget("https://deno.land/logo.svg");
 ### CLI
 
 ```
-$ deno run jsr:@chiba/wget https://deno.land/logo.svg
+$ deno run jsr:@chiba/wget/cli https://deno.land/logo.svg
 ```
 
 ### REPL

@@ -2,38 +2,38 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@std/assert@^0.218.2": "jsr:@std/assert@0.218.2",
-      "jsr:@std/cli@^0.218.2": "jsr:@std/cli@0.218.2",
-      "jsr:@std/fs@^0.218.2": "jsr:@std/fs@0.218.2",
-      "jsr:@std/path@^0.218.2": "jsr:@std/path@0.218.2"
+      "jsr:@std/assert@^0.219.1": "jsr:@std/assert@0.219.1",
+      "jsr:@std/cli@^0.219.1": "jsr:@std/cli@0.219.1",
+      "jsr:@std/fs@^0.219.1": "jsr:@std/fs@0.219.1",
+      "jsr:@std/path@^0.219.1": "jsr:@std/path@0.219.1"
     },
     "jsr": {
-      "@std/assert@0.218.2": {
-        "integrity": "7f0a5a1a8cf86607cd6c2c030584096e1ffad27fc9271429a8cb48cfbdee5eaf"
+      "@std/assert@0.219.1": {
+        "integrity": "e76c2a1799a78f0f4db7de04bdc9b908a7a4b821bb65eda0285885297d4fb8af"
       },
-      "@std/cli@0.218.2": {
-        "integrity": "7877f41b4369f51b2ee06132b678ceee703051671c0fcea9058c1c0242652098",
+      "@std/cli@0.219.1": {
+        "integrity": "715a9926b58b89ef8a3c91e91633ac5f8176e0f02f6b3a16f0a67309e41a2911",
         "dependencies": [
-          "jsr:@std/assert@^0.218.2"
+          "jsr:@std/assert@^0.219.1"
         ]
       },
-      "@std/fs@0.218.2": {
-        "integrity": "dd9431453f7282e8c577cc22c9e6d036055a9a980b5549f887d6012969fabcca",
+      "@std/fs@0.219.1": {
+        "integrity": "c18daa9bede16463d040dcdde575fce13be4bb7807cb6211094abd0c723117a5",
         "dependencies": [
-          "jsr:@std/assert@^0.218.2",
-          "jsr:@std/path@^0.218.2"
+          "jsr:@std/assert@^0.219.1",
+          "jsr:@std/path@^0.219.1"
         ]
       },
-      "@std/path@0.218.2": {
-        "integrity": "b568fd923d9e53ad76d17c513e7310bda8e755a3e825e6289a0ce536404e2662"
+      "@std/path@0.219.1": {
+        "integrity": "e5c0ffef3a8ef2b48e9e3d88a1489320e8fb2cc7be767b17c91a1424ffb4c8ed"
       }
     }
   },
   "remote": {},
   "workspace": {
     "dependencies": [
-      "jsr:@std/cli@^0.218.2",
-      "jsr:@std/fs@^0.218.2"
+      "jsr:@std/cli@^0.219.1",
+      "jsr:@std/fs@^0.219.1"
     ]
   }
 }
