@@ -1,6 +1,6 @@
 # wget
 
-[![](https://jsr.io/badges/@chiba/wget)](https://jsr.io/@chiba/wget)
+[![](https://jsr.io/badges/@chiba/wget?a)](https://jsr.io/@chiba/wget)
 
 File download
 
