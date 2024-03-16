@@ -23,7 +23,7 @@ export interface Result {
  *
  * @param url
  * @param options
- * @returns Response
+ * @returns result
  */
 export async function wget(
   url: string,
