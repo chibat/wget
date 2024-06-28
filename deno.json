@@ -1,6 +1,6 @@
 {
   "name": "@chiba/wget",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "exports": {
     ".": "./mod.ts",
     "./cli": "./cli.ts"
@@ -10,7 +10,7 @@
     "test": "deno test --allow-net=deno.land --allow-read=. --allow-write=."
   },
   "imports": {
-    "@std/cli": "jsr:@std/cli@^0.219.1",
-    "@std/fs": "jsr:@std/fs@^0.219.1"
+    "@std/cli": "jsr:@std/cli@^0.224.7",
+    "@std/fs": "jsr:@std/fs@^0.229.3"
   }
 }

@@ -43,16 +43,22 @@ export async function wget(
       outputDocument = "index.html";
     }
   }
-
-  const original = outputDocument;
-  for (let i = 1; i < Number.MAX_SAFE_INTEGER; i++) {
-    if (!fs.existsSync(outputDocument)) {
-      break;
-    }
-    outputDocument = `${original}.${i}`;
-  }
-
-  const f = Deno.createSync(outputDocument);
-  await response.body?.pipeTo(f.writable);
+  const writable = getWritable(outputDocument);
+  await response.body?.pipeTo(writable);
   return { response, outputDocument };
+}
+
+function getWritable(outputDocument: string) {
+  if (outputDocument === "-") {
+    return Deno.stdout.writable;
+  } else {
+    const original = outputDocument;
+    for (let i = 1; i < Number.MAX_SAFE_INTEGER; i++) {
+      if (!fs.existsSync(outputDocument)) {
+        break;
+      }
+      outputDocument = `${original}.${i}`;
+    }
+    return Deno.createSync(outputDocument).writable;
+  }
 }
