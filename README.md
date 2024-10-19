@@ -1,4 +1,4 @@
-# wget
+# deno-wget
 
 [![JSR](https://jsr.io/badges/@chiba/wget?a)](https://jsr.io/@chiba/wget)
 [![JSR Score](https://jsr.io/badges/@chiba/wget/score)](https://jsr.io/@chiba/wget)

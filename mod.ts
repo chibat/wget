@@ -6,7 +6,7 @@ import * as fs from "@std/fs";
 export interface Options {
   /** write documents to FILE */
   outputDocument?: string;
-  /** Proxy, Certificate, etc(require `--unstable` option) */
+  /** Proxy, Certificate, etc */
   client?: Deno.CreateHttpClientOptions;
 }
 
